@@ -7,7 +7,7 @@ We plan to create a task management system that allows users to add, edit, delet
 
 #### 1. Algorithmic Loops
 **List Comprehension**
-In our task manager, managing lists of tasks, priorities, and statuses efficiently is crucial. List comprehension offers a way to create these lists succinctly.
+In our task manager, managing lists of tasks, priorities, and statuses efficiently is crucial. List comprehension offers a way to create these lists concisely.
 ```python
 # List of high-priority tasks
 high_priority_tasks = [task['name'] for task in tasks if task['priority'] == 'high']
