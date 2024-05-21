@@ -1,6 +1,10 @@
 ## Task Manager
+
+
 #### Introduction
 We plan to create a task management system that allows users to add, edit, delete, and search tasks efficiently. This system will feature real-time updates, task sorting by priorities, and comprehensive tracking of task statuses.
+
+
 #### 1. Algorithmic Loops
 **List Comprehension**
 In our task manager, managing lists of tasks, priorities, and statuses efficiently is crucial. List comprehension offers a way to create these lists succinctly.
@@ -10,6 +14,7 @@ high_priority_tasks = [task['name'] for task in tasks if task['priority'] == 'hi
 ```
 **Processing Lists**
 We will demonstrate two methods of processing a list: conventional loops and the 'for each' method.
+
 **Conventional Loop**
 ```python
 # Count total number of tasks
@@ -17,11 +22,13 @@ total_tasks = 0
 for task in tasks:
     total_tasks += 1
 ```
+
 **For Each Method**
 ```python
 # Count total number of tasks using sum() and a generator expression
 total_tasks = sum(1 for task in tasks)
 ```
+
 #### 2. Sorting and Searching
 **Sorting**
 Sorting is essential for organizing tasks. We’ll use SQLite for database queries to allow efficient sorting by priorities.
@@ -29,20 +36,25 @@ Sorting is essential for organizing tasks. We’ll use SQLite for database queri
 # Query to sort tasks by priority
 sorted_tasks = session.query(Task).order_by(Task.priority.desc()).all()
 ```
+
 **Searching**
 Searching for specific tasks by name or status is a frequent operation. SQLite's filtering capabilities make this straightforward.
 ```python
 # Query to find a specific task by name
 task = session.query(Task).filter_by(name='Complete Report').first()
 ```
+
 #### 3. Big(O) Notation
 Understanding the time and space complexity of our algorithms is crucial for ensuring the system's scalability.
+
 **Time Complexity**
 - Sorting tasks using SQLAlchemy: O(n log n)
 - Searching for a task by name: O(1) for a direct access via an indexed search
+
 **Space Complexity**
 - Sorting: O(n) (temporary storage for the sorted list)
 - Searching: O(1) (constant space for the result)
+
 #### 4. 2D Iteration
 Occasionally, we need to process data in two dimensions. For example, when generating a report of tasks assigned to different users.
 ```python
@@ -58,6 +70,7 @@ for task in tasks_assigned:
 #### 5. Deployment
 **Full Stack Deployment**
 Deploying our task management system involves setting up a web server, database, and front-end application. We’ll use Flask for the backend, SQLite for the database, and HTML/JavaScript for the frontend.
+
 **Backend (Flask)**
 ```python
 from flask import Flask, request, jsonify
@@ -151,6 +164,8 @@ if __name__ == '__main__':
 </body>
 </html>
 ```
+
+
 **Simultaneous Use and Updates**
 Our deployment plan includes allowing multiple users to interact with the system simultaneously, which involves setting up a robust deployment environment on AWS and ensuring database security and efficient API endpoint handling.
 This structure should provide a comprehensive guide to creating your task manager, ensuring it meets all required technical and user interaction needs.
